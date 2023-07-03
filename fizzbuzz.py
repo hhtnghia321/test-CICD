@@ -1,7 +1,7 @@
 """Function to solve the fizzbuzz problem."""
 def fizz_buzz(num: int) -> str:
     """This is my great and neat function to solve the famous
-    Fizz Buzz problem. 
+    Fizz Buzz promblem. 
     :param num: That's the number which we want the answer for
     :return: fizz, buzz, fizzbuzz or the number itself
     """

@@ -1,4 +1,4 @@
-# This workflow will install Python dependencies, run tests and
+## This workflow will install Python dependencies, run tests and
 # lint with a variety of Python versions
 # For more information see: https://bit.ly/3mX0m9V
 
@@ -33,3 +33,18 @@ jobs:
     # You can test your matrix by printing the current Python version
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install black flake8 mypy pytest hypothesis isort pylint
+    - name: Run black
+      run:
+        black --check . --exclude docs/
+    - name: Run flake8
+      run: flake8 fizzbuzz.py
+    - name: Run pylint
+      run: pylint fizzbuzz.py
+    - name: Run Mypy
+      run: mypy fizzbuzz.py
+    - name: Run isort
+      run: isort --profile black fizzbuzz.py
